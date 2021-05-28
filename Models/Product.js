@@ -1,9 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
+
 const sequelize = require('../config/connection');
 
-class Users extends Model {}
+class Product extends Model {}
 
-Users.init(
+Product.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -11,33 +12,39 @@ Users.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        first_name: {
+        product_name: {
             type: DataTypes.STRING,
+            primaryKey: true,
             allowNull: false,
 
         },
-        last_name: {
-            type: DataTypes.STRING,
+        price: {
+            type: DataTypes.DECIMAL,
             allowNull: false,
-             
-        },
-        email: {
-            type: DataTypes.STRING,
+          },
+        stock: {
+            type: DataTypes.INTEGER,
             allowNull: false,
-        },
-        password: {
-            type: DataTypes.STRING,
+          },
+        cost: {
+            type: DataTypes.DECIMAL,
             allowNull: false,
-        },
-        
+          },
+        profit: {
+            type: DataTypes.DECIMAL,
+            allowNull: false,
+          }
+
     },
     {
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'users',
+        modelName: 'product',
     }
 );
 
-module.exports = Users;
+module.exports = Product;
+
+
