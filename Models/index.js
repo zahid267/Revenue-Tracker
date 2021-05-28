@@ -2,9 +2,11 @@
 
 const Users = require('./Users');
 const Product = require('./Product');
+const Profits = require('./Profits')
 
 
 module.exports = {
     Users,
-    Product
+    Product,
+    Profits
 };

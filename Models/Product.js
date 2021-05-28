@@ -25,16 +25,7 @@ Product.init(
         stock: {
             type: DataTypes.INTEGER,
             allowNull: false,
-          },
-        cost: {
-            type: DataTypes.DECIMAL,
-            allowNull: false,
-          },
-        profit: {
-            type: DataTypes.DECIMAL,
-            allowNull: false,
           }
-
     },
     {
         sequelize,
