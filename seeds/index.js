@@ -1,16 +1,15 @@
 const sequelize = require('../config/connection');
-const Dish = require('../models/Dish');
-const dishData = require('./dish-seeds.json');
+const seedGallery = require('./galleryData');
+const seedPaintings = require('./paintingData');
 
-const seedDatabase = async () => {
+const seedAll = async () => {
   await sequelize.sync({ force: true });
 
-  await Dish.bulkCreate(dishData, {
-    individualHooks: true,
-    returning: true,
-  });
+  await seedGallery();
+
+  await seedPaintings();
 
   process.exit(0);
 };
 
-seedDatabase();
+seedAll();
