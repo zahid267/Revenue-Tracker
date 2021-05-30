@@ -12,16 +12,6 @@ Profits.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        cost: {
-            type: DataTypes.DECIMAL,
-            primaryKey: true,
-            allowNull: false,
-        },
-        sell_price: {
-            type: DataTypes.DECIMAL,
-            primaryKey: true,
-            allowNull: false,
-        },
         profit: {
             type: DataTypes.DECIMAL,
             primaryKey: true,
@@ -30,6 +20,14 @@ Profits.init(
         product_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            references: {
+                model: 'category',
+                key: 'id',
+              },
+              references: {
+                model: 'product',
+                key: 'id',
+              },
         }
 
     },
