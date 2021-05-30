@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
     });
 
     req.session.save(() => {
-      req.session.loggedIn = true;
+      req.session.loggedInOwner = true;
 
       res.status(200).json(dbOwnerData);
     });
@@ -38,7 +38,7 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    const validPassword = await dbOwnerData.checkPassword(req.body.password);
+    const validPassword = dbOwnerData.checkPassword(req.body.password);
 
     if (!validPassword) {
       res

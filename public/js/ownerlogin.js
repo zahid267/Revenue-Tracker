@@ -1,5 +1,5 @@
-const loginFormHandlerB = async (event) => {
-    event.preventDefault();
+const loginFormHandlerB = async () => {
+    
   
     const email = document.querySelector('#bemail-login').value.trim();
     const password = document.querySelector('#bpassword-login').value.trim();
