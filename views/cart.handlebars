@@ -1,0 +1,28 @@
+<div class="container">
+        <div class="row">
+            <table class="border">
+            <caption><h4>The Shopping Cart Items</h4></caption>
+                <thead>
+                <tr>
+                    <th>ID</th>  
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Extended</th>
+                </tr>
+                </thead>
+                <tbody id="events">
+                  {{#each products as |product|}}
+                    <tr>
+                        <td>{{product.id}}</td>
+                        <td>{{product.product_name}}</td>
+                        <td>{{product.price}}</td>
+                        <td>{{product.quantity}}</td>
+                        <td>{{product.extended}}</td>
+                    </tr>
+                  {{/each}}  
+                </tbody>
+            </table>
+    </div>
+</div>
+<script src="/js/cart.js"></script>
