@@ -7,6 +7,10 @@ Profits.belongsTo(Product, {
     foreignKey: 'product_id',
 })
 
+Product.belongsTo(Profits, {
+    foreignKey: 'product_id',
+})
+
 
 
 module.exports = {

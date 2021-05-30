@@ -20,10 +20,6 @@ Profits.init(
         product_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            references: {
-                model: 'category',
-                key: 'id',
-              },
               references: {
                 model: 'product',
                 key: 'id',

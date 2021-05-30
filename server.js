@@ -3,7 +3,6 @@ const sequelize = require('./config/connection');
 // const routes = require('./routes');
 // import sequelize connection
 
-const Users = require('./models/Users');
 const Product = require('./models/Product');
 const Profits = require('./models/Profits');
 
