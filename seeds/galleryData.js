@@ -1,4 +1,4 @@
-const { Gallery } = require('../models');
+/*const { Gallery } = require('../models');
 
 const gallerydata = [
   {
@@ -25,4 +25,4 @@ const gallerydata = [
 
 const seedGallery = () => Gallery.bulkCreate(gallerydata);
 
-module.exports = seedGallery;
+module.exports = seedGallery;*/

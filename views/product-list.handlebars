@@ -1,0 +1,24 @@
+{{#if loggedIn}}
+<a href="/products/add">Add a new product</a>
+{{/if}}
+<main>
+    <div class="featureditems" style="overflow-y:scroll">
+        {{#each products as |product|}}
+        <div style="float: left; width: 33%;">
+            <div height="100px" class="card row">
+                <div class="card-content" style="width:100%">
+                    <div class="card-title activator grey-text text-darken-4">{{product.product_name}}</div>
+                    <div class="right-align" style="valign:top;" >
+                        <span class="card-title grey-text text-darken-4 right-align">Stock : {{product.stock}}</span>
+                        <p>Price : ${{product.price}}</p>
+                    </div>
+                    <div class="right-align" style="float: inline-end;">
+                    <input type="button" value="Add to Cart" onClick="AddToCart(event,'{{product.id}}');">
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</main>
+<script src="/js/cart.js"></script>

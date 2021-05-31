@@ -1,4 +1,4 @@
-const { Painting } = require('../models');
+/*const { Painting } = require('../models');
 
 const paintingdata = [
   {
@@ -83,3 +83,4 @@ const paintingdata = [
 const seedPaintings = () => Painting.bulkCreate(paintingdata);
 
 module.exports = seedPaintings;
+*/
