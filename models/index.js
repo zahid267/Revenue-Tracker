@@ -3,7 +3,7 @@ const Gallery = require('./Gallery');
 const Painting = require('./Painting');
 const Owner = require('./Owner');
 const Product = require('./Product.js');
-const Profit = require('./Profit')
+const Profit = require('./Profits')
 
 //say what belongs to what here (18:31)
 Profit.belongsTo(Product, {
