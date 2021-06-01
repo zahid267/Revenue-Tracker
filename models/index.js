@@ -1,6 +1,6 @@
 const User = require('./User');
-const Gallery = require('./Gallery');
-const Painting = require('./Painting');
+//const Gallery = require('./Gallery');
+//const Painting = require('./Painting');
 const Owner = require('./Owner');
 const Product = require('./Product.js');
 const Profit = require('./Profits')
@@ -17,5 +17,4 @@ Product.belongsTo(Profit, {
 
 
 
-module.exports = { Owner, User, Gallery, Painting, Product,
-  Profit };
+module.exports = { Owner, User,  Product,  Profit };

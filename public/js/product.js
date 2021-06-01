@@ -4,34 +4,39 @@ const productUpdate = async (event) => {
     const product_name = document.querySelector('#product_name').value.trim();
     const stock = document.querySelector('#stock').value.trim();
     const price = document.querySelector('#price').value.trim();
+    const cost = document.querySelector('#cost').value.trim();
     if(document.querySelector('#product_id') && document.querySelector('#product_id').value !== ""){
       id = document.querySelector('#product_id').value.trim();
     }
     if(id === ""){
-          alert(product_name +" && " + stock +" && " + price);
-          if (product_name && stock && price) {
-              const response = await fetch('/products/', {
+
+          if (product_name && stock && price && cost) {
+             // const response = await fetch('/products/', {
+              const response = await fetch('/', {
                   method: 'POST',
-                  body: JSON.stringify({ product_name, stock, price }),
+                  body: JSON.stringify({ product_name, price, cost, stock }),
                   headers: { 'Content-Type': 'application/json' },
               });
   
               if (response.ok) {
-              document.location.replace('/products');
+              //document.location.replace('/products');
+              document.location.replace('/');
               } else {
               alert('Failed to add product.');
               }
           }
     }else{
-      if (id && product_name && stock && price) {
-          const response = await fetch('/products/'+id, {
+      if (id && product_name && stock && price && cost) {
+         // const response = await fetch('/products/'+id, {
+          const response = await fetch('/'+id, {
               method: 'PUT',
-              body: JSON.stringify({product_name, stock, price }),
+              body: JSON.stringify({product_name, price, cost, stock }),
               headers: { 'Content-Type': 'application/json' },
           });
   
           if (response.ok) {
-          document.location.replace('/products');
+          //document.location.replace('/products');
+          document.location.replace('/');
           } else {
           alert('Failed to update product.');
           }
@@ -47,14 +52,15 @@ const productUpdate = async (event) => {
         if(!prompt1){return false;}
       }     
       if (id) {
-          const response = await fetch('/products/'+id, {
+          //const response = await fetch('/products/'+id, {
+          const response = await fetch('/'+id, {
               method: 'DELETE',
               body: JSON.stringify({}),
               headers: { 'Content-Type': 'application/json' },
           });
   
           if (response.ok) {
-          document.location.replace('/products');
+          document.location.replace('/');     /// /products
           } else {
           alert('Failed to delete product.');
           }

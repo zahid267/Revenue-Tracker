@@ -1,6 +1,6 @@
 const router = require('express').Router();
 //const { Gallery, Painting } = require('../models');
-const { Gallery, Painting, Product } = require('../models');
+const { Product } = require('../models');
 
 // GET all productss for productpage
 
@@ -27,14 +27,22 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+// Login route
+router.get('/login', (req, res) => {
+  
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+  res.render('login');
+});
 // Add product route
 router.get('/add', (req, res) => {
-  if (req.session.loggedIn) {
-  //  res.redirect('/products');
+  //if (req.session.loggedIn) {
+    res.redirect('/');
    // return;
-  }
-  res.render('product');
+  //}
+  res.render('product',{loggedIn: req.session.loggedIn });
 });
 
 // GET one Product
@@ -133,5 +141,7 @@ router.delete('/:id', async (req, res) => {
       res.status(500).json(err);
     }
   });
+
+  
 
 module.exports = router;
