@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
     });
 
     req.session.save(() => {
-      req.session.loggedInOwner = true;
+      req.session.loggedIn = true;
 
       res.status(200).json(dbOwnerData);
     });
@@ -23,7 +23,7 @@ router.post('/', async (req, res) => {
 });
 
 // Login
-router.post('/login', async (req, res) => {
+router.post('/owner', async (req, res) => {
   try {
     const dbOwnerData = await Owner.findOne({
       where: {
