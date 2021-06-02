@@ -4,7 +4,7 @@ const router = require('express').Router();
 
 // Login route
 
-router.get('/owner', (req, res) => {
+router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
     return;

@@ -10,7 +10,7 @@ const cartRoutes = require('./cart-routes');
 //router.use('/', homeRoutes);
 router.use('/', productRoutes);
 router.use('/api', apiRoutes);
-router.use('/',businessOwnerRoutes)
+router.use('/owner',businessOwnerRoutes)
 router.use('/cart', cartRoutes);
 //router.use('/products', productRoutes);
 //router.use('/login', homeRoutes);

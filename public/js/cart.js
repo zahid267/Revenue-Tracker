@@ -7,6 +7,7 @@
            // body: JSON.stringify({}),
             headers: { 'Content-Type': 'application/json' },
         });
+        console.log("here : " + response.cartCnt);
         if (response.ok) {
             alert(prodid+" added to cart");
         } else {
