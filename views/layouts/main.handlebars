@@ -12,6 +12,19 @@
 
   <link rel="stylesheet" type="text/css" href="/css/jass.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <style>
+    #cartcnt{
+    font-size: 14px;
+    font-weight: 900;
+    position: absolute;
+    border: solid rgb(255, 6, 6);
+    border-radius: 60%;
+    height: 14px;
+    width: 8px;
+    background:red;
+}
+
+  </style>
 </head>
 
 <body >
@@ -25,8 +38,18 @@
     <button id="logout" class="btn-no-style">Logout</button>
     {{else}}
     <a href="/login">Login</a> 
+<<<<<<< HEAD
     <a href="/api/owner">Owner Login</a> 
+=======
+    <a href="/owner/login">Owner Login</a> 
     {{/if}}
+    <a href="/cart/list" class="right-align" style="float:inline-end">
+    <i class="material-icons left " style="margin-right:0px;">shopping_cart</i>
+    {{#if cartCnt}}
+    <span id="cartcnt">{{cartCnt}}</span>
+>>>>>>> 9d9a865546bcd4c344e0b8a18a5f5ea57af44591
+    {{/if}}
+    </a>
   </nav>
   <main>
     <aside>

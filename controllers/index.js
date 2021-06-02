@@ -11,7 +11,7 @@ const dashboardRoutes = require('./business-stats-routes');
 router.use('/', homeRoutes);
 router.use('/', productRoutes);
 router.use('/api', apiRoutes);
-router.use('/',businessOwnerRoutes)
+router.use('/owner',businessOwnerRoutes)
 router.use('/cart', cartRoutes);
 router.use('/owner', adminRoutes)
 router.use('/', dashboardRoutes);

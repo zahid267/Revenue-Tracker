@@ -1,7 +1,10 @@
 {{#if loggedIn}}
 <a href="/products/add">Add a new product</a>
 {{/if}}
-<main>
+
+<a href="/cart/list">Shopping Cart</a>
+
+<main class="blue-grey">
     <div class="featureditems"> <!--style="overflow-y:scroll"-->
         {{#each products as |product|}}
         <div style="float: left; width: 33%;">

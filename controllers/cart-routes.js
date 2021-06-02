@@ -5,7 +5,7 @@ const {Product } = require('../models');
 let cartData = [];
 // GET all cart products for cartpage
 
-router.get('/', async (req, res) => {
+router.get('/list/', async (req, res) => {
     try {
       
      // const dbProductData = req.session.cartData;   /// Get the cart products from the session
@@ -35,8 +35,16 @@ router.get('/:id', async (req, res) => {
     product.quantity = 1;    /// Set a quantity of one for the add to cart product
     product.extended = product.price;
     cartData.push(product);
+    const cartCnt = cartData.length;
     req.session.cartData=cartData;
-    //res.render('product', { product, loggedIn: req.session.loggedIn });
+    req.session.cartCnt=cartCnt;
+
+    res.render('product-list', {
+      // layout: 'main', <--- if you don't specify a layout, it will default to this
+      products: product,
+      cartCnt: cartCnt,
+      loggedIn: req.session.loggedIn
+    });
     
     console.log(req.session.cartData);
 
