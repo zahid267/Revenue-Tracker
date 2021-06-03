@@ -4,11 +4,16 @@ const {Profit} = require('../../models');
 //load profit data, make sure it has same properties
 // Login route
 
-let profitData = [];
 
 router.get('/', async(req, res) => {
   try {
-    const profits = profitData;
+    const dbProfitData = await Profit.findAll({
+
+    });
+
+    const profits = dbProfitData.map((Profit) =>
+    Profit.get({plain: true})
+    );
 
     res.render('dashboard', {
       profits,
