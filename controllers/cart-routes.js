@@ -7,16 +7,19 @@ let cartData = [];
 
 router.get('/list/', async (req, res) => {
     try {
-      
-     // const dbProductData = req.session.cartData;   /// Get the cart products from the session
-     /* const products = dbProductData.map((Product) =>
-        Product.get({ plain: true })
-      );*/
-     // const products = JSON.parse(req.session.cartData);    /// cartData ia an array of json product objects
-      const products = cartData
-    
+      cartData = JSON.parse(localStorage.getItem("cartData"));
+      const cartCnt = cartData.length;
+      let cartTotal = 0.00;
+      for(var i=0; i<cartData.length;i++){
+        cartTotal += cartData.quantity*cartData.price;
+      }
+      const products = cartData;
+      console.log(cartCnt+ " ==== " + cartTotal);
+      console.log(products);
       res.render('cart', {
         products,
+        cartCnt,
+        cartTotal,
         loggedIn: req.session.loggedIn,
       });
     } catch (err) {
@@ -36,17 +39,17 @@ router.get('/:id', async (req, res) => {
     product.extended = product.price;
     cartData.push(product);
     const cartCnt = cartData.length;
-    req.session.cartData=cartData;
-    req.session.cartCnt=cartCnt;
-
+    //localStorage.setItem("cartData", JSON.stringify(cartData));
+    
+    console.log("cartCnt : " + cartCnt);
     res.render('product-list', {
       // layout: 'main', <--- if you don't specify a layout, it will default to this
-      products: product,
+      //products: product,
       cartCnt: cartCnt,
       loggedIn: req.session.loggedIn
     });
     
-    console.log(req.session.cartData);
+    //console.log(req.session.cartData);
 
     res.status(200);
   //  return;

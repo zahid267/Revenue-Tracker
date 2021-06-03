@@ -39,7 +39,7 @@ router.get('/login', (req, res) => {
 // Add product route
 router.get('/add', (req, res) => {
   //if (req.session.loggedIn) {
-    res.redirect('/');
+  //  res.redirect('/');
    // return;
   //}
   res.render('product',{loggedIn: req.session.loggedIn });

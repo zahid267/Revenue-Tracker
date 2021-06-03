@@ -1,6 +1,7 @@
+<main class="blue-grey">
 <div class="container">
         <div class="row">
-            <table class="border striped">
+            <table class="border striped center-align">
             <caption><h4>The Shopping Cart Items</h4></caption>
                 <thead>
                 <tr>
@@ -20,9 +21,15 @@
                         <td>{{product.quantity}}</td>
                         <td>{{product.extended}}</td>
                     </tr>
-                  {{/each}}  
+                  {{/each}} 
+                  {{#if cartTotal}}
+                  <tr>
+                    <td colspan="4">Grand Total</td><td>{{cartTotal}}</td>
+                  </tr>
+                  {{/if}} 
                 </tbody>
             </table>
     </div>
 </div>
+</main>
 <script src="/js/cart.js"></script>
