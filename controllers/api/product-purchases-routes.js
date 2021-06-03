@@ -16,7 +16,7 @@ router.get('/', async(req, res) => {
     Profit.get({plain: true})
     );
 
-    res.render('dashboard', {
+    res.render('productpurchases', {
       profits,
       loggedIn: req.session.loggedIn,
     });
