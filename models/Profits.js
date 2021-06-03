@@ -1,9 +1,11 @@
 
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes, DATE } = require('sequelize');
 
 const sequelize = require('../config/connection');
 
 class Profit extends Model {}
+
+// const isoDateString: string = datePickerDate.toISOString();
 
 Profit.init(
     {
@@ -14,7 +16,7 @@ Profit.init(
             autoIncrement: true,
         },
         profit: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.DECIMAL(10,2),
             primaryKey: true,
             allowNull: false,
         },
@@ -25,8 +27,12 @@ Profit.init(
                 model: 'product',
                 key: 'id',
               },
-        }
-
+            },
+        date: {
+            type: 'TIMESTAMP',
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
+            allowNull: false
+        },
     },
     {
         sequelize,

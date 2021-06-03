@@ -56,10 +56,6 @@ router.get('/add', (req, res) => {
 
 // GET one Product
 router.get('/:id', async (req, res) => {
-  if(req.params.id==="add"){
-    res.render('product');
-    return;
-  }
   try {
     const dbProductData = await Product.findByPk(req.params.id, {
      /* include: [
@@ -91,14 +87,15 @@ router.post('/', async (req, res) => {
       const dbProductData = await Product.create({
         product_name: req.body.product_name,
         price: req.body.price,
+        cost:req.body.cost,
         stock: req.body.stock,
       });
-  
       req.session.save(() => {
         req.session.loggedIn = true;
         req.session.isOwner = true
+      //  req.session.loggedIn = true;
         
-        //res.redirect('/products'); to redirect to prodcut listing page
+       // res.redirect('/');  //to redirect to prodcut listing page
         //return;
 
         res.status(200).json(dbProductData);
