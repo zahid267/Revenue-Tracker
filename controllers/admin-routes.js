@@ -1,5 +1,5 @@
 const router = require('express').Router();
-
+//const { Gallery, Painting } = require('../models');
 const { Product } = require('../models');
 
 // GET all productss for productpage
@@ -21,6 +21,9 @@ router.get('/', async (req, res) => {
     res.render('product-list', {
       products,
       loggedIn: req.session.loggedIn,
+       
+
+
     });
   } catch (err) {
     console.log(err);
@@ -39,10 +42,13 @@ router.get('/login', (req, res) => {
 // Add product route
 router.get('/add', (req, res) => {
   //if (req.session.loggedIn) {
-    res.redirect('/');
+    // res.redirect('/');
    // return;
   //}
-  res.render('product',{loggedIn: req.session.loggedIn });
+  res.render('product',{loggedIn: req.session.loggedIn,
+    
+   });
+  
 });
 
 // GET one Product
@@ -87,7 +93,7 @@ router.post('/', async (req, res) => {
   
       req.session.save(() => {
         req.session.loggedIn = true;
-        
+        req.session.isOwner = true;
         //res.redirect('/products'); to redirect to prodcut listing page
         //return;
 

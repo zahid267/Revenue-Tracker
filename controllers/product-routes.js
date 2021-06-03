@@ -36,6 +36,15 @@ router.get('/login', (req, res) => {
   }
   res.render('login');
 });
+
+router.get('/login', (req, res) => {
+  
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+  res.render('owner');
+});
 // Add product route
 router.get('/add', (req, res) => {
   //if (req.session.loggedIn) {
@@ -87,6 +96,7 @@ router.post('/', async (req, res) => {
   
       req.session.save(() => {
         req.session.loggedIn = true;
+        req.session.isOwner = true
         
         //res.redirect('/products'); to redirect to prodcut listing page
         //return;
@@ -145,3 +155,6 @@ router.delete('/:id', async (req, res) => {
   
 
 module.exports = router;
+
+//if statment to differ owner from user 
+//

@@ -13,7 +13,7 @@ const logout = async () => {
 };
 
 const ownerlogout = async () => {
-  const response = await fetch('/api/owner/logout', {
+  const response = await fetch('/api/owners/logout', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
   });

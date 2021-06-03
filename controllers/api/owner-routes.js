@@ -12,7 +12,10 @@ router.post('/', async (req, res) => {
     });
 
     req.session.save(() => {
-      req.session.loggedInOwner = true;
+      req.session.loggedIn = true;
+      req.session.isOwner = true;
+
+      
 
       res.status(200).json(dbOwnerData);
     });
@@ -49,6 +52,7 @@ router.post('/login', async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.isOwner = true;
 
       res
         .status(200)
