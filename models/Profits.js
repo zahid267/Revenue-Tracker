@@ -5,6 +5,8 @@ const sequelize = require('../config/connection');
 
 class Profit extends Model {}
 
+// const isoDateString: string = datePickerDate.toISOString();
+
 Profit.init(
     {
         id: {
@@ -25,8 +27,11 @@ Profit.init(
                 model: 'product',
                 key: 'id',
               },
-        }
-
+            },
+        date: {
+            type: DataTypes.DATE,
+            allowNull: false,
+        },
     },
     {
         sequelize,
