@@ -14,7 +14,7 @@ Profit.init(
             autoIncrement: true,
         },
         profit: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.DECIMAL(10,2),
             primaryKey: true,
             allowNull: false,
         },

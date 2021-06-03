@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {Product } = require('../models');
+const {Product, Profit} = require('../models');
 
 
 let cartData = [];
@@ -7,26 +7,76 @@ let cartData = [];
 
 router.get('/list/', async (req, res) => {
     try {
-      cartData = JSON.parse(localStorage.getItem("cartData"));
-      const cartCnt = cartData.length;
-      let cartTotal = 0.00;
+      let cTotal = 0;
       for(var i=0; i<cartData.length;i++){
-        cartTotal += cartData.quantity*cartData.price;
+        cTotal += parseFloat(cartData[i].extended);
       }
       const products = cartData;
-      console.log(cartCnt+ " ==== " + cartTotal);
-      console.log(products);
-      res.render('cart', {
-        products,
-        cartCnt,
-        cartTotal,
-        loggedIn: req.session.loggedIn,
-      });
+      const cartTotal = cTotal;
+    //  console.log(cartCnt+ " ==== " + cartTotal);
+      //console.log(products);
+      
+        res.render('cart', {
+          products,
+          cartTotal,
+          loggedIn: req.session.loggedIn,
+        });
+      
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
     }
   });
+  router.get('/checkout/', async (req, res) => {
+      let cTotal = 0;
+      for(var i=0; i<cartData.length;i++){
+        const productid = cartData[i].id;
+        const profit = parseFloat(cartData[i].price)-parseFloat(cartData[i].cost);
+        try {
+          const dbProfitData = await Profit.create({
+            profit : profit,
+            product_id : productid,
+          });
+          
+        } catch (err) {
+          console.log(err);
+          res.status(500).json(err);
+        }
+      }
+      for(var i=0; i<cartData.length;i++){
+        cartData.splice(i, 1);
+      }
+      cartData.splice(0, 1);
+
+      res.redirect('/'); 
+    
+  });
+  router.get('/delete/:id', async (req, res) => {
+    let cTotal = 0;
+    let delno = null;
+    //console.log("here in cart delete");
+    for(var i=0; i<cartData.length;i++){
+      if(cartData[i].id==req.params.id){
+        delno = i;
+        i = cartData.length+1;
+      }
+    }
+    if (delno !== null) {
+      cartData.splice(delno, 1);
+    }
+ // res.redirect('/list'); 
+    for(var i=0; i<cartData.length;i++){
+      cTotal += parseFloat(cartData[i].extended);
+    }
+    const products = cartData;
+    const cartTotal = cTotal;
+    res.render('cart', {    /// go back to the cart list page
+      products,
+      cartTotal,
+      loggedIn: req.session.loggedIn,
+    });
+  
+});
 // Add one Product to the cart record
 router.get('/:id', async (req, res) => {
   try {
@@ -39,9 +89,11 @@ router.get('/:id', async (req, res) => {
     product.extended = product.price;
     cartData.push(product);
     const cartCnt = cartData.length;
-    //localStorage.setItem("cartData", JSON.stringify(cartData));
+   /* req.session.save(() => {
+        req.session.cartData = cartData;
+      });*/
     
-    console.log("cartCnt : " + cartCnt);
+    //console.log("cartCnt : " + cartCnt);
     res.render('product-list', {
       // layout: 'main', <--- if you don't specify a layout, it will default to this
       //products: product,

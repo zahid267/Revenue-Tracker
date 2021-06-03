@@ -20,12 +20,16 @@
                         <td>{{product.price}}</td>
                         <td>{{product.quantity}}</td>
                         <td>{{product.extended}}</td>
+                        <td><input type="button" value="Delete" onClick="document.location.replace('/cart/delete/{{product.id}}')"></td>
                     </tr>
                   {{/each}} 
                   {{#if cartTotal}}
                   <tr>
-                    <td colspan="4">Grand Total</td><td>{{cartTotal}}</td>
+                    <td colspan="4" class="right-align">Grand Total : </td><td>{{cartTotal}}</td>
                   </tr>
+                  <tr><td colspan="5" class="right-align">
+                    <input type="button" value="Checkout" onClick="document.location.replace('/cart/checkout')">
+                  </td></tr>
                   {{/if}} 
                 </tbody>
             </table>
