@@ -1,5 +1,5 @@
 
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes, DATE } = require('sequelize');
 
 const sequelize = require('../config/connection');
 
@@ -29,8 +29,9 @@ Profit.init(
               },
             },
         date: {
-            type: DataTypes.DATE,
-            allowNull: false,
+            type: 'TIMESTAMP',
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
+            allowNull: false
         },
     },
     {
