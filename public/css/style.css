@@ -1,10 +1,10 @@
 :root {
-  --primary: rgb(80, 80, 233);
-  --secondary: rgb(125, 125, 189);
-  --tertiary: rgba(124, 124, 223, 0.212);
-  --quatrinary: #676b6c;
-  --light: #e3e4e3;
-  --dark: rgb(6, 6, 94);
+  --primary: rgb(36, 36, 36);
+  --secondary: rgb(59, 59, 59);
+  --tertiary: rgba(0, 0, 0, 0.212);
+  --quatrinary: #000000;
+  --light: #ffffff;
+  --dark: rgb(0, 0, 0);
   --error: rgb(228, 46, 1);
   --border-radius: 0.3rem;
 }
@@ -16,7 +16,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   justify-content: flex-start;
-  background-color:rgb(168, 184, 235);
+  background-color:rgb(36, 36, 36);
   
 
  
@@ -71,7 +71,7 @@ nav a:hover {
 
 .gallery {
   flex: 4;
-  background-color: #fff;
+  background-color: rgb(36, 36, 36);
   padding: 50px;
   display: flex;
   flex-flow: row wrap;
@@ -127,7 +127,7 @@ img {
   border-radius: var(--border-radius);
   border-style: double;
   border-width: thick;
-  background-color: #577a7c;
+  background-color: rgba(36, 36, 36);
   color: var(--light);
 }
 
