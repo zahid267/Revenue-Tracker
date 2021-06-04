@@ -41,6 +41,15 @@
     <a href="/login">Login</a> 
     <a href="/owner/login">Owner Login</a> 
     {{/if}}
+  {{#if loggedIn}}
+      {{#if isOwner}}
+    <a href="./add" class="button">Add New Product</a>
+    <a href="./productstats" class="button">Product Stats</a>
+    <a href="./dashboard" class="button">Profit Dashboard</a>
+    <a href="./userlist" class="button">Users</a>
+     {{/if}}
+    {{/if}}
+
     <a href="/cart/list" class="right-align" style="float:inline-end">
     <i class="material-icons left " style="margin-right:0px;">shopping_cart</i>
     {{#if cartCnt}}
@@ -51,11 +60,7 @@
   <main>
     <aside>
       <h2>Checked items</h2>
-      {{#if loggedIn}}
-      {{#if isOwner}}
-    <a href="./add" class="button">Add New Product</a>
-     {{/if}}
-    {{/if}}
+      
     </aside>
     <div class="gallery">
       {{{body}}}
