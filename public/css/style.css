@@ -1,10 +1,10 @@
 :root {
-  --primary: #3d5852;
-  --secondary: #86938f;
-  --tertiary: #5e877f;
-  --quatrinary: #6c6b67;
+  --primary: rgb(80, 80, 233);
+  --secondary: rgb(125, 125, 189);
+  --tertiary: rgba(124, 124, 223, 0.212);
+  --quatrinary: #676b6c;
   --light: #e3e4e3;
-  --dark: #182c23;
+  --dark: rgb(6, 6, 94);
   --error: rgb(228, 46, 1);
   --border-radius: 0.3rem;
 }
@@ -16,7 +16,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   justify-content: flex-start;
-  background-color: white;
+  background-color:rgb(168, 184, 235);
   
 
  
