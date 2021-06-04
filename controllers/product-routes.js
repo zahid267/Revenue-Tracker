@@ -58,10 +58,7 @@ router.get('/add', (req, res) => {
 // GET one Product
 router.get('/:id', async (req, res) => {
   try {
-    const dbProductData = await Product.findByPk(req.params.id, {
-    
-    });
-
+    const dbProductData = await Product.findByPk(req.params.id);
     const product = dbProductData.get({ plain: true });
     res.render('product', { product, loggedIn: req.session.loggedIn });
   } catch (err) {
