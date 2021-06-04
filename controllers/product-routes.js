@@ -54,7 +54,7 @@ router.get('/add', (req, res) => {
     // res.redirect('/');
    // return;
   //}
-  res.render('product',{loggedIn: req.session.loggedIn });
+  res.render('product',{loggedIn: req.session.loggedIn, isOwner: req.session.isOwner });
 });
 
 router.get('/userlist', async(req, res) => {
@@ -93,6 +93,7 @@ router.get('/productstats', async(req, res) => {
     res.render('productpurchases', {
       product,
       loggedIn: req.session.loggedIn,
+      isOwner: req.session.isOwner
     });
   } catch (err) {
     console.log(err) 
@@ -114,6 +115,7 @@ router.get('/dashboard', async(req, res) => {
     res.render('dashboard', {
       profits,
       loggedIn: req.session.loggedIn,
+      isOwner: req.session.isOwner
     });
   } catch (err) {
     console.log(err) 
@@ -125,12 +127,9 @@ router.get('/dashboard', async(req, res) => {
 // GET one Product
 router.get('/:id', async (req, res) => {
   try {
-    const dbProductData = await Product.findByPk(req.params.id, {
-    
-    });
-
+    const dbProductData = await Product.findByPk(req.params.id);
     const product = dbProductData.get({ plain: true });
-    res.render('product', { product, loggedIn: req.session.loggedIn });
+    res.render('product', { product, loggedIn: req.session.loggedIn, isOwner: req.session.isOwner });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

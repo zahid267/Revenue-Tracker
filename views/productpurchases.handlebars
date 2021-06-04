@@ -1,5 +1,4 @@
 {{#if loggedIn}}
-<a href="/add">Add a new product</a>
 {{/if}}
 <main>
     <div class="featureditems">
@@ -15,6 +14,7 @@
                     <div class="right-align" style="valign:top;" >
                     </div>
                     <div class="right-align" style="float: inline-end;">
+                        <input type="button" value="Modify" onClick="document.location.replace('/{{product.id}}')">
                     </div>
                 </div>
             </div>

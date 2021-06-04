@@ -1,12 +1,11 @@
 {{#if loggedIn}}
 
 {{#if isOwner }}
-<a href="/add">Add a new product</a>
 {{/if}}
 {{/if}}
 <main>
     <div class="featureditems">
-            <div style="font-size: 50px">Total Profits Today: </div> <!--style="overflow-y:scroll"-->
+            <div style="font-size: 50px">Total Profits Today: {{totalProfit.total_profit}} </div> <!--style="overflow-y:scroll"-->
         {{#each profits as |profit|}}
         <div style="float: left; width: 100%;">
             <div height="50px" class="card row">

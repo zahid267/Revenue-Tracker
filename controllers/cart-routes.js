@@ -20,6 +20,7 @@ router.get('/list/', async (req, res) => {
           products,
           cartTotal,
           loggedIn: req.session.loggedIn,
+          isOwner: req.session.isOwner,
         });
       
     } catch (err) {
