@@ -1,18 +1,18 @@
 <main class="blue-grey">
 <div class="row">
-    <form id="product-form" class="col s12 center-align">
+    <form id="product-form" class="col s12">
       <div class="row">
-        <div class="input-field col s12">
+        <div class="input-field col s12" >
           <input id="product_id" type="hidden" value="{{product.id}}" class="validate">
-          product Name:
+          <div style = "margin-left: 40px" >Product Name:</div>
           <div class="input-field right-align">
-            <textarea placeholder="Placeholder" id="product_name" cols="80" class="validate">{{product.product_name}}</textarea>
+            <textarea  style = "margin-left: 40px" placeholder="Product name" id="product_name" cols="80" class="validate">{{product.product_name}}</textarea>
           </div>
 
         </div>
       </div>
       <div class="row">    
-        <div class="col s12">
+        <div class="col s12" style = "margin-left: 40px">
           Price:
           <div class="input-field inline">
             <input id="price" type="text" value="{{product.price}}" class="validate square-box align-right">
@@ -20,7 +20,7 @@
           </div>
       </div>
       <div class="row">    
-        <div class="col s12">
+        <div class="col s12" style = "margin-left: 40px">
           Stock:
           <div class="input-field inline">
             <input id="stock" type="text" value="{{product.stock}}" class="validate square-box align-right">
@@ -29,7 +29,7 @@
       </div>
       
       <div class="row">    
-        <div class="col s12">
+        <div class="col s12" style = "margin-left: 40px">
           Cost:
           <div class="input-field inline">
             <input id="cost" type="text" value="{{product.cost}}" class="validate square-box align-right">
@@ -39,7 +39,7 @@
 
     <div class="row">
       <div class="file-field input-field col s12">
-          <button type="submit" id="cust_btn" class ="btn waves-effect waves-light">Submit</button>
+          <button style= "margin-left: 30px " type="submit" id="cust_btn" class ="btn waves-effect waves-light">Submit</button>
           {{#if product.id}}
           <button id="cust_delete" class ="btn waves-effect waves-light" style="float:right;">Delete</button>
           {{/if}}
