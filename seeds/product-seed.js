@@ -20,7 +20,7 @@ const productData = [
     cost: 10.99
   },
   {
-    product_name: 'Top 40 Music Compilation Vinyl Record',
+    product_name: 'Top 40 Music Compilation Vinyl',
     price: 12.99,
     stock: 50,
     cost: 6.99
