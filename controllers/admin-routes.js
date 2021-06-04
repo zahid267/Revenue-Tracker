@@ -21,7 +21,9 @@ router.get('/', async (req, res) => {
     res.render('product-list', {
       products,
       loggedIn: req.session.loggedIn,
-      isOwner: req.session.isOwner
+       
+
+
     });
   } catch (err) {
     console.log(err);
@@ -29,15 +31,6 @@ router.get('/', async (req, res) => {
   }
 });
 // Login route
-router.get('/login', (req, res) => {
-  
-  if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
-  }
-  res.render('login');
-});
-
 router.get('/login', (req, res) => {
   
   if (req.session.loggedIn) {
@@ -52,14 +45,33 @@ router.get('/add', (req, res) => {
     // res.redirect('/');
    // return;
   //}
-  res.render('product',{loggedIn: req.session.loggedIn });
+  res.render('product',{loggedIn: req.session.loggedIn,
+    
+   });
+  
 });
 
 // GET one Product
 router.get('/:id', async (req, res) => {
+  if(req.params.id==="add"){
+    res.render('product');
+    return;
+  }
   try {
     const dbProductData = await Product.findByPk(req.params.id, {
-    
+     /* include: [
+        {
+          model: Painting,
+          attributes: [
+            'id',
+            'title',
+            'artist',
+            'exhibition_date',
+            'filename',
+            'description',
+          ],
+        },
+      ],*/
     });
 
     const product = dbProductData.get({ plain: true });
@@ -76,15 +88,13 @@ router.post('/', async (req, res) => {
       const dbProductData = await Product.create({
         product_name: req.body.product_name,
         price: req.body.price,
-        cost:req.body.cost,
         stock: req.body.stock,
       });
+  
       req.session.save(() => {
         req.session.loggedIn = true;
-        req.session.isOwner = true
-      //  req.session.loggedIn = true;
-        
-       // res.redirect('/');  //to redirect to prodcut listing page
+        req.session.isOwner = true;
+        //res.redirect('/products'); to redirect to prodcut listing page
         //return;
 
         res.status(200).json(dbProductData);
@@ -141,6 +151,3 @@ router.delete('/:id', async (req, res) => {
   
 
 module.exports = router;
-
-//if statment to differ owner from user 
-//

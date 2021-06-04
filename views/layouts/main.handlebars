@@ -35,6 +35,7 @@
   <nav>
     <a href="/">Home</a>
     {{#if loggedIn}}
+  
     <button id="logout" class="btn-no-style">Logout</button>
     {{else}}
     <a href="/login">Login</a> 
@@ -51,8 +52,9 @@
     <aside>
       <h2>Checked items</h2>
       {{#if loggedIn}}
+      {{#if isOwner}}
     <a href="./add" class="button">Add New Product</a>
-     
+     {{/if}}
     {{/if}}
     </aside>
     <div class="gallery">
@@ -60,7 +62,7 @@
     </div>
   </main>
   {{#if loggedIn}}
-  <script src="./js/ownerlogin.js"></script>
+  
   <script src="/js/logout.js"></script>
   {{/if}}
 </body>
