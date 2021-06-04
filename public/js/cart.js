@@ -14,3 +14,5 @@
             alert('Failed to add product to cart.');
         }
     }}
+
+   
