@@ -28,11 +28,11 @@ Profit.init(
                 key: 'id',
               },
             },
-        date: {
-            type: 'TIMESTAMP',
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
-            allowNull: false
-        },
+        // date: {
+        //     type: 'TIMESTAMP',
+        //     defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
+        //     allowNull: false
+        // },
     },
     {
         sequelize,
