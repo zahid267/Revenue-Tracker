@@ -35,14 +35,16 @@
   <nav>
     <a href="/">Home</a>
     {{#if loggedIn}}
-  
+    <button  class="btn-no-style">Customer</button>
     <button id="logout" class="btn-no-style">Logout</button>
     {{else}}
     <a href="/login">Login</a> 
     <a href="/owner/login">Owner Login</a> 
+  
     {{/if}}
   {{#if loggedIn}}
       {{#if isOwner}}
+    <button  class="btn-no-style">Owner</button>
     <a href="./add" class="button">Add New Product</a>
     <a href="./productstats" class="button">Product Stats</a>
     <a href="./dashboard" class="button">Profit Dashboard</a>
