@@ -71,7 +71,7 @@ nav a:hover {
 
 .gallery {
   flex: 4;
-  background-color: #fff;
+  background-color: rgb(196, 193, 231);
   padding: 50px;
   display: flex;
   flex-flow: row wrap;
