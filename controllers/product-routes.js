@@ -59,19 +59,7 @@ router.get('/add', (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const dbProductData = await Product.findByPk(req.params.id, {
-     /* include: [
-        {
-          model: Painting,
-          attributes: [
-            'id',
-            'title',
-            'artist',
-            'exhibition_date',
-            'filename',
-            'description',
-          ],
-        },
-      ],*/
+    
     });
 
     const product = dbProductData.get({ plain: true });

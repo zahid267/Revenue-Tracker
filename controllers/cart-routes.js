@@ -40,9 +40,39 @@ router.get('/list/', async (req, res) => {
           
         } catch (err) {
           console.log(err);
-          res.status(500).json(err);
+        //  res.status(500).json(err);
         }
       }
+
+      for(var i=0; i<cartData.length;i++){
+        const productid = cartData[i].id;
+        const dbProductData = await Product.findByPk(productid, {
+      
+        });
+    
+        const productRec = dbProductData.get({ plain: true });
+        console.log("before stock update");
+        productRec.stock = parseInt(productRec.stock) - 1;
+        console.log(productRec);
+        try {
+          const productData = await Product.update(productRec, {
+            where: {
+              id: productid,
+            },
+          });
+          if (!productData[0]) {
+            res.status(404).json({ message: 'No product with this id : '+productid });
+          //  return;
+          }
+          //res.redirect('/products'); to redirect to prodcut listing page
+            //return;
+          //res.status(200).json(productData);
+        } catch (err) {
+          console.log(err);
+         // res.status(500).json(err);
+        }
+      }
+
       for(var i=0; i<cartData.length;i++){
         cartData.splice(i, 1);
       }
