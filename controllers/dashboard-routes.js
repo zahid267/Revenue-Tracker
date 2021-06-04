@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const {Profit} = require('../../models');
-const {Product} = require('../../models');
+const {Profit} = require('../models');
+const {Product} = require('../models');
 
 //load profit data, make sure it has same properties
 // Login route
