@@ -13,7 +13,7 @@ const loginFormHandlerB = async () => {
       });
   
       if (response.ok) {
-        document.location.replace('/');
+        document.location.replace('/dashboard');
       } else {
         alert('Failed to log in.');
       }
@@ -29,7 +29,6 @@ const loginFormHandlerB = async () => {
     const busname = document.querySelector('#busname-signup').value.trim();
   
 
-    console.log("woof")
     if (username && email && password && busname) {
       const response = await fetch('/api/owners', {
         method: 'POST',
@@ -39,7 +38,7 @@ const loginFormHandlerB = async () => {
   
   
       if (response.ok) {
-        document.location.replace('/');
+        document.location.replace('/dashboard');
       } else {
         alert('Failed to sign up.');
       }
