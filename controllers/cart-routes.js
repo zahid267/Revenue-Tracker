@@ -51,9 +51,8 @@ router.get('/list/', async (req, res) => {
         });
     
         const productRec = dbProductData.get({ plain: true });
-        console.log("before stock update");
+
         productRec.stock = parseInt(productRec.stock) - 1;
-        console.log(productRec);
         try {
           const productData = await Product.update(productRec, {
             where: {
@@ -62,10 +61,9 @@ router.get('/list/', async (req, res) => {
           });
           if (!productData[0]) {
             res.status(404).json({ message: 'No product with this id : '+productid });
-          //  return;
+          
           }
-          //res.redirect('/products'); to redirect to prodcut listing page
-            //return;
+          
           //res.status(200).json(productData);
         } catch (err) {
           console.log(err);

@@ -1,21 +1,26 @@
 {{#if loggedIn}}
+<<<<<<< HEAD
+=======
 {{#if isOwner }}
 <a href="/add">Add a new product</a>
+>>>>>>> fd80cb429d849fb5e9e8fb768d2487d73630b2e9
 {{/if}}
 {{/if}}
 <main>
-    <div class="featureditems"> <!--style="overflow-y:scroll"-->
-        {{#each profits as |profits|}}
-        <div style="float: left; width: 33%;">
-            <div height="100px" class="card row">
+    <div class="featureditems">
+            <div style="font-size: 50px">Total Profits Today: </div> <!--style="overflow-y:scroll"-->
+        {{#each profits as |profit|}}
+        <div style="float: left; width: 100%;">
+            <div height="50px" class="card row">
                 <div class="card-content" style="width:100%">
-                    <div class="card-title activator grey-text text-darken-4">{{profits.product_id}}</div>
+                    <div class="card-title activator grey-text text-darken-4"> Name: {{profit.product.product_name}}</div>
+                     <div class="card-title activator grey-text text-darken-4"> Stock: {{profit.product.price}}</div>
+                    <div class="card-title activator grey-text text-darken-4"> Profit: {{profit.profit}}</div>
+                     <div class="card-title activator grey-text text-darken-4"> Stock: {{profit.product.stock}}</div>
+                    <div class="card-title activator grey-text text-darken-4"> Time Purchased: {{profit.date}}</div>
                     <div class="right-align" style="valign:top;" >
-                        <span class="card-title grey-text text-darken-4 right-align">Stock : {{profits.date}}</span>
-                        <p>Profit : ${{profits.profit}}</p>
                     </div>
                     <div class="right-align" style="float: inline-end;">
-                    <input type="button" value="Add to Cart" onClick="AddToCart(event,'{{profits.id}}');">
                     </div>
                 </div>
             </div>

@@ -1,0 +1,26 @@
+{{#if loggedIn}}
+<a href="/add">Add a new product</a>
+{{/if}}
+<main>
+    <div class="featureditems">
+            <div style="font-size: 50px">Total Products: </div> <!--style="overflow-y:scroll"-->
+        {{#each product as |product|}}
+        <div style="float: left; width: 100%;">
+            <div height="50px" class="card row">
+                <div class="card-content" style="width:100%">
+                    <div class="card-title activator grey-text text-darken-4"> Product: {{product.product_name}}</div>
+                    <div class="card-title activator grey-text text-darken-4"> Product Price: {{product.price}}</div>
+                    <div class="card-title activator grey-text text-darken-4"> Product Cost: {{product.cost}}</div>
+                    <div class="card-title activator grey-text text-darken-4"> Product Profit: {{product.profit.profit}}</div>
+                    <div class="card-title activator grey-text text-darken-4"> Product Stock: {{product.stock}}</div>
+                    <div class="right-align" style="valign:top;" >
+                    </div>
+                    <div class="right-align" style="float: inline-end;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</main>
+<script src="/js/cart.js"></script>
