@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const sequelize = require('../config/connection');
 const {Profit} = require('../models');
 const {Product} = require('../models');
 
@@ -12,6 +13,14 @@ router.get('/', async(req, res) => {
       include: [{model: Product}]
     });
 
+    const totalProfit = await Profit.findAll({
+      attributes: [
+        'id',
+        [sequelize.fn('sum', sequelize.col('profit')), 'total_profit'],
+      ],
+      group: ['id']
+    })
+
     const profits = dbProfitData.map((Profit) =>
     Profit.get({plain: true})
     );
@@ -19,6 +28,7 @@ router.get('/', async(req, res) => {
     console.log(profits);
     res.render('dashboard', {
       profits,
+      totalProfit,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
