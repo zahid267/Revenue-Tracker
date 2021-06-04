@@ -21,6 +21,7 @@ router.get('/', async (req, res) => {
     res.render('product-list', {
       products,
       loggedIn: req.session.loggedIn,
+      isOwner: req.session.isOwner
     });
   } catch (err) {
     console.log(err);
