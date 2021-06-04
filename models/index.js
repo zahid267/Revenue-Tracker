@@ -10,7 +10,7 @@ Profit.belongsTo(Product, {
     foreignKey: 'product_id',
 })
 
-Product.belongsTo(Profit, {
+Product.hasOne(Profit, {
     foreignKey: 'product_id',
 })
 

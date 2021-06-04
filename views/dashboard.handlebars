@@ -1,15 +1,17 @@
 {{#if loggedIn}}
-<a href="/add">Add a new product</a>
 {{/if}}
 <main>
     <div class="featureditems">
-            <div style="font-size: 50px">Total Pofits Today: </div> <!--style="overflow-y:scroll"-->
-        {{#each profits as |profits|}}
+            <div style="font-size: 50px">Total Profits Today: </div> <!--style="overflow-y:scroll"-->
+        {{#each profits as |profit|}}
         <div style="float: left; width: 100%;">
             <div height="50px" class="card row">
                 <div class="card-content" style="width:100%">
-                    <div class="card-title activator grey-text text-darken-4"> Profit: {{profits.profit}}</div>
-                    <div class="card-title activator grey-text text-darken-4"> Time Purchased: {{profits.date}}</div>
+                    <div class="card-title activator grey-text text-darken-4"> Name: {{profit.product.product_name}}</div>
+                     <div class="card-title activator grey-text text-darken-4"> Stock: {{profit.product.price}}</div>
+                    <div class="card-title activator grey-text text-darken-4"> Profit: {{profit.profit}}</div>
+                     <div class="card-title activator grey-text text-darken-4"> Stock: {{profit.product.stock}}</div>
+                    <div class="card-title activator grey-text text-darken-4"> Time Purchased: {{profit.date}}</div>
                     <div class="right-align" style="valign:top;" >
                     </div>
                     <div class="right-align" style="float: inline-end;">

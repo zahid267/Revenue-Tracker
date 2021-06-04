@@ -8,16 +8,17 @@ const {Product} = require('../../models');
 
 router.get('/', async(req, res) => {
   try {
-    const dbProfitData = await Profit.findAll({
-      include: [{model: Product}]
+    const dbProductData = await Product.findAll({
+      include: [{model: Profit}]
     });
 
-    const profits = dbProfitData.map((Profit) =>
-    Profit.get({plain: true})
+    const product = dbProductData.map((Product) =>
+    Product.get({plain: true})
     );
 
+    console.log(product);
     res.render('productpurchases', {
-      profits,
+      product,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
