@@ -13,14 +13,10 @@ router.get('/', async(req, res) => {
       include: [{model: Product}]
     });
 
-    const totalProfit = await Profit.findAll({
-      attributes: [
-        'id',
-        [sequelize.fn('sum', sequelize.col('profit')), 'total_profit'],
-      ],
-      group: ['id']
-    })
-
+     const profitsSSum = await Profit.sum('profit')
+     console.log("============================s")
+     console.log(profitsSSum)
+      
     const profits = dbProfitData.map((Profit) =>
     Profit.get({plain: true})
     );
