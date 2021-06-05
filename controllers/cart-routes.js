@@ -12,7 +12,7 @@ router.get('/list/', async (req, res) => {
         cTotal += parseFloat(cartData[i].extended);
       }
       const products = cartData;
-      const cartTotal = cTotal;
+      const cartTotal = cTotal.toFixed(2);
     //  console.log(cartCnt+ " ==== " + cartTotal);
       //console.log(products);
       
