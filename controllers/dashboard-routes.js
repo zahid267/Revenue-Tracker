@@ -24,7 +24,7 @@ router.get('/', async(req, res) => {
     const profits = dbProfitData.map((Profit) =>
     Profit.get({plain: true})
     );
-
+   
     console.log(profits);
     res.render('dashboard', {
       profits,
