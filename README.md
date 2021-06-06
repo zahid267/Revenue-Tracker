@@ -50,10 +50,10 @@ INSTALLATION :
 
 This app is deploy though heroku, by click the link below you can 
 
-![Heroku link](https://murmuring-headland-20273.herokuapp.com/)
+* Heroku link : https://murmuring-headland-20273.herokuapp.com/
 After opening app on Heroku sign up and then log in.
 
-![github link](https://github.com/zahid267/Revenue-Tracker)
+* Github link : https://github.com/zahid267/Revenue-Tracker
 
 
 *** Created by Muhammad Zahid - June 06, 2021
