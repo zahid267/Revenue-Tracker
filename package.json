@@ -1,7 +1,7 @@
 {
-  "name": "museum-paintings",
+  "name": "Revenue-Tracker",
   "version": "1.0.0",
-  "description": "",
+  "description": "Market Revenue Tracker - Project 2",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

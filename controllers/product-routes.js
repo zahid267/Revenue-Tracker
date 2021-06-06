@@ -89,7 +89,7 @@ router.get('/productstats', async(req, res) => {
     Product.get({plain: true})
     );
 
-    console.log(product);
+   // console.log(product);
     res.render('productpurchases', {
       product,
       loggedIn: req.session.loggedIn,
@@ -108,15 +108,15 @@ router.get('/dashboard', async(req, res) => {
     });
 
     let profitsSum = await Profit.sum('profit')
-    console.log("============================s")
-    console.log(profitsSum)
+    //console.log("============================s")
+    //console.log(profitsSum)
     profitsSum = profitsSum.toFixed(2)
 
     const profits = dbProfitData.map((Profit) =>
     Profit.get({plain: true})
     );
 
-    console.log(profits);
+  //  console.log(profits);
     res.render('dashboard', {
       profitsSum,
       profits,
@@ -132,6 +132,10 @@ router.get('/dashboard', async(req, res) => {
 
 // GET one Product
 router.get('/:id', async (req, res) => {
+  if(req.params.id === "favicon.ico" || req.params.id === ""){
+    res.redirect('/');
+    return;
+  }
   try {
     const dbProductData = await Product.findByPk(req.params.id);
     const product = dbProductData.get({ plain: true });

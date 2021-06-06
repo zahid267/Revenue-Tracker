@@ -1,6 +1,5 @@
 const loginFormHandlerB = async () => {
     
-  
     const email = document.querySelector('#bemail-login').value.trim();
     const password = document.querySelector('#bpassword-login').value.trim();
     const busname = document.querySelector('#busname-login').value.trim();
@@ -11,7 +10,6 @@ const loginFormHandlerB = async () => {
         body: JSON.stringify({ email, password, busname }),
         headers: { 'Content-Type': 'application/json' },
       });
-  
       if (response.ok) {
         document.location.replace('/dashboard');
       } else {
@@ -35,7 +33,6 @@ const loginFormHandlerB = async () => {
         body: JSON.stringify({ username, email, password, busname}),
         headers: { 'Content-Type': 'application/json' },
       });
-  
   
       if (response.ok) {
         document.location.replace('/dashboard');
