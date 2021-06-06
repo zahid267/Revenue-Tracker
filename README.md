@@ -15,15 +15,6 @@ customers can add to cart after finsihed they can check
 
 Owner can login and check revenue and update stock and products
 
-INSTALLATION 
-
-this app is deploy though heroku, by click the link below you can 
-
-![Heroku link](https://business-revenue-tracker.herokuapp.com/)
-After opening app on Heroku sign up and then log in.
-
-![git hub link](https://github.com/Stephan311/Marketing-Revenue-Tracker)
-to view our work via github also the source files for heroku
 
 PICTURES OF THE APP
 OWNER SETUP
@@ -55,6 +46,14 @@ when customer is shopping this is an example of the cart with items
 customer shoppinhg list example 
 
 
-* Github URL : https://github.com/zahid267/Revenue-Tracker
+INSTALLATION :
 
-* Heroku install URL : https://murmuring-headland-20273.herokuapp.com/
+This app is deploy though heroku, by click the link below you can 
+
+![Heroku link](https://murmuring-headland-20273.herokuapp.com/)
+After opening app on Heroku sign up and then log in.
+
+![github link](https://github.com/zahid267/Revenue-Tracker)
+
+
+*** Created by Muhammad Zahid - June 06, 2021
