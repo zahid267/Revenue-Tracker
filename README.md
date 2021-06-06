@@ -53,3 +53,8 @@ when customer is shopping this is an example of the cart with items
 
 ![product list](./public/images/shop-list.png)
 customer shoppinhg list example 
+
+
+* Github URL : https://github.com/zahid267/Revenue-Tracker
+
+* Heroku install URL : https://murmuring-headland-20273.herokuapp.com/
