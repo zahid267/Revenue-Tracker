@@ -31,7 +31,7 @@ OWNER SETUP
 ![adding Products ](./public/images/add-pro.png)
 this is example of the page for adding new products
 
-![login page](./public/images/login-page.png)
+![login page](./public/images/Login-page.png)
 login page example 
 
 ![product details page](./public/images/product-details.png)
